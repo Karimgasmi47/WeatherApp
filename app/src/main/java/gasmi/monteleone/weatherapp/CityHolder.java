@@ -11,7 +11,6 @@ import android.widget.TextView;
 public class CityHolder extends RecyclerView.ViewHolder{
     private View view;
     private TextView nomView;
-    private TextView countryView;
 
 
     private City city;
@@ -22,7 +21,6 @@ public class CityHolder extends RecyclerView.ViewHolder{
 
         view = itemView;
         nomView = (TextView) view.findViewById(R.id.nom);
-        countryView = (TextView) view.findViewById(R.id.country);
 
     }
 
@@ -32,7 +30,6 @@ public class CityHolder extends RecyclerView.ViewHolder{
 
         // Modification des champs
         nomView.setText(city.getName());
-        countryView.setText(city.getCountry());
 
         // Affectation du listener
         if(listener != null) {

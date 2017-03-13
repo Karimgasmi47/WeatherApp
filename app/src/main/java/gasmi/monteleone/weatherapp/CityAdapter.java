@@ -22,6 +22,11 @@ public class CityAdapter extends RecyclerView.Adapter<CityHolder>{
         void onCityLongClick(City city);
     }
 
+    public CityAdapter(ArrayList<City> items, OnCityListener listener){
+        this.items = items;
+        this.listener = listener;
+    }
+
     @Override
     public CityHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 

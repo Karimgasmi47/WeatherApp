@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -20,6 +23,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class FirstActivity extends AppCompatActivity {
+
+    private CityAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +62,33 @@ public class FirstActivity extends AppCompatActivity {
                 cities.add(gson.fromJson(line, City.class));
             }
 
+
+            // Création de l'Adapter avec pour paramètre la liste des Users (passage par référence !!!) et un Listener pour gérer le clic
+            adapter = new CityAdapter(cities, new CityAdapter.OnCityListener(){
+                @Override
+                public void onCityClick(City city) {
+                    // Action lors du clic sur un item de la liste
+                    Toast.makeText(FirstActivity.this, city.getName() + " - " + city.getCountry(), Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                public void onCityLongClick(City city) {
+                    // Autre action lors du clic long sur un item de la liste
+                }
+            });
+
+            // Récupération du recyclerView
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+
+            // Affectation du LayoutManager
+            recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+            //recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+
+            // Affectation de l'Adapter
+            recyclerView.setAdapter(adapter);
+
+
+
         } catch (final Exception e){
             e.printStackTrace();
         } finally {
@@ -73,6 +105,10 @@ public class FirstActivity extends AppCompatActivity {
                 }
             }
         }
+
+
+
+
 
 
     }
