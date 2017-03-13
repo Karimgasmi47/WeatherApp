@@ -11,10 +11,13 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.gson.Gson;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class FirstActivity extends AppCompatActivity {
 
@@ -23,6 +26,7 @@ public class FirstActivity extends AppCompatActivity {
 
         // Objets pour récuperer le contenu du fichier json (les villes)
         String json_file_string = "";
+        ArrayList<City> cities = new ArrayList<>();
         InputStream is = null;
         BufferedReader reader = null;
         AssetManager assetManager = getAssets();
@@ -42,15 +46,17 @@ public class FirstActivity extends AppCompatActivity {
             }
         });
 
+        Gson gson = new Gson();
+
         try {
-            is = assetManager.open("city_france.json");
+            is = assetManager.open("city_france2.json");
             reader = new BufferedReader(new InputStreamReader(is));
             json_file_string = reader.readLine();
             String line = null;
             while( (line = reader.readLine()) != null) {
-                json_file_string += '\n' + line;
+                cities.add(gson.fromJson(line, City.class));
             }
-            Log.v("FirstActivity", json_file_string);
+
         } catch (final Exception e){
             e.printStackTrace();
         } finally {
