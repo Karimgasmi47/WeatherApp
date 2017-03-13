@@ -24,7 +24,7 @@ public class CityHolder extends RecyclerView.ViewHolder{
 
     }
 
-    // Méthode qui lie les données du User aux champs correspondant ainsi que le listener
+    // Méthode qui lie les données des City aux champs correspondant ainsi que le listener
     public void bind(City city, final CityAdapter.OnCityListener listener) {
         this.city = city;
 

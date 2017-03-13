@@ -51,6 +51,8 @@ public class FirstActivity extends AppCompatActivity {
             }
         }); */
 
+
+
         Gson gson = new Gson();
 
         try {
@@ -68,12 +70,13 @@ public class FirstActivity extends AppCompatActivity {
                 @Override
                 public void onCityClick(City city) {
                     // Action lors du clic sur un item de la liste
-                    Toast.makeText(FirstActivity.this, city.getName() + " - " + city.getCountry(), Toast.LENGTH_LONG).show();
+
                 }
 
                 @Override
                 public void onCityLongClick(City city) {
                     // Autre action lors du clic long sur un item de la liste
+                    Toast.makeText(FirstActivity.this, city.getName(), Toast.LENGTH_LONG).show();
                 }
             });
 
