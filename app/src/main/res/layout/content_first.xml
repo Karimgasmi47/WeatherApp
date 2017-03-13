@@ -13,17 +13,7 @@
     tools:context="gasmi.monteleone.weatherapp.FirstActivity"
     tools:showIn="@layout/activity_first">
 
-    <TextView
-        android:id="@+id/nom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
 
-    <TextView
-        android:id="@+id/country"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
 
 
 

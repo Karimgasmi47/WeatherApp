@@ -27,29 +27,29 @@ public class CityHolder extends RecyclerView.ViewHolder{
     }
 
     // Méthode qui lie les données du User aux champs correspondant ainsi que le listener
-    public void bind(City city) {
+    public void bind(City city, final CityAdapter.OnCityListener listener) {
         this.city = city;
 
         // Modification des champs
         nomView.setText(city.getName());
         countryView.setText(city.getCountry());
-/*
+
         // Affectation du listener
         if(listener != null) {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    listener.onUserClick(FileHolder.this.file);
+                    listener.onCityClick(CityHolder.this.city);
                 }
             });
 
             view.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View view) {
-                    listener.onUserLongClick(FileHolder.this.file);
+                    listener.onCityLongClick(CityHolder.this.city);
                     return false;
                 }
             });
-        }*/
+        }
     }
 }
