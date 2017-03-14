@@ -54,6 +54,10 @@ public class DetailCity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
 
+                        // Coucou c'est pour le push
+
+
+
                         // Display the first 500 characters of the response string.
                         //meteo.setText("Response is: "+ response.substring(0,500));
                     }
