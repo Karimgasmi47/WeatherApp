@@ -31,6 +31,8 @@ public class FirstActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+
+
         // Objets pour récuperer le contenu du fichier json (les villes)
         String json_file_string = "";
         ArrayList<City> cities = new ArrayList<>();
@@ -53,8 +55,6 @@ public class FirstActivity extends AppCompatActivity {
             }
         }); */
 
-
-
         Gson gson = new Gson();
 
         try {
@@ -73,7 +73,12 @@ public class FirstActivity extends AppCompatActivity {
                 public void onCityClick(City city) {
                     // Action lors du clic sur un item de la liste
                     Intent intent = new Intent(FirstActivity.this, DetailCity.class);
+                    Log.e("testLat", String.valueOf(city.getCoord().getLatitude()));
+                    Log.e("testLon", String.valueOf(city.getCoord().getLongitude()));
                     intent.putExtra("city", city);
+                    // intent.putExtra("lat", city.getCoord().getLatitude());
+                    // intent.putExtra("long", city.getCoord().getLongitude());
+                    intent.putExtra("coord", city.getCoord());
                     startActivity(intent);
 
                 }
@@ -81,7 +86,7 @@ public class FirstActivity extends AppCompatActivity {
                 @Override
                 public void onCityLongClick(City city) {
                     // Autre action lors du clic long sur un item de la liste
-                    Toast.makeText(FirstActivity.this, city.getName(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(FirstActivity.this, city.getName() + " - " + city.getCountry(), Toast.LENGTH_LONG).show();
                 }
             });
 

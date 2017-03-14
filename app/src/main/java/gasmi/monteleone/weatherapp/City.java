@@ -9,10 +9,10 @@ import com.google.gson.annotations.SerializedName;
  * Created by DUT on 27/02/2017.
  */
 
-public class City implements Parcelable {
+public class City implements Parcelable{
 
     @SerializedName("_id")
-    private int id;
+    private int _id;
 
     private String name;
     private String country;
@@ -20,14 +20,14 @@ public class City implements Parcelable {
     private Coord coord;
 
     public City(int id, String name, String country, Coord coord) {
-        this.id = id;
+        this._id = id;
         this.name = name;
         this.country = country;
         this.coord = coord;
     }
 
     protected City(Parcel in) {
-        id = in.readInt();
+        _id = in.readInt();
         name = in.readString();
         country = in.readString();
     }
@@ -45,11 +45,11 @@ public class City implements Parcelable {
     };
 
     public int getId() {
-        return id;
+        return _id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this._id = id;
     }
 
     public String getName() {
@@ -83,7 +83,7 @@ public class City implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
+        dest.writeInt(_id);
         dest.writeString(name);
         dest.writeString(country);
     }

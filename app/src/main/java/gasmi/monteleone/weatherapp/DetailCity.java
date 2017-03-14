@@ -14,8 +14,23 @@ public class DetailCity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_city);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        City city = getIntent().getParcelableExtra("city");
+        Coord coordo = getIntent().getParcelableExtra("coord");
+        //Double lat = getIntent().getDoubleExtra("lat", 0.0);
+        //Double lon = getIntent().getDoubleExtra("long", 0.0);
+
+        TextView nom = (TextView) findViewById(R.id.nom);
+        TextView coord = (TextView) findViewById(R.id.coord);
+
+        nom.setText(city.getCountry() + " - " +city.getName());
+//      coord.setText("Long : " + city.getCoord().getLongitude() + "\nLat : " + city.getCoord().getLatitude());
+        coord.setText("\nLong : "+ coordo.getLatitude() + "\nLat : " + coordo.getLongitude());
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
