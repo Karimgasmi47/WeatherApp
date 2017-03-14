@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,30 +46,31 @@ public class DetailCity extends AppCompatActivity {
 
 
         // Instantiate the RequestQueue.
-        RequestQueue queue = Volley.newRequestQueue(this);
         String url ="http://api.openweathermap.org/data/2.5/weather?id=" + city.getId() + "&appid=" + API_KEY;
 
-        // Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
+        GsonRequest<City> request = new GsonRequest<>(url, City.class, null,
+                new Response.Listener<City>() {
                     @Override
-                    public void onResponse(String response) {
+                    public void onResponse( City response) {
 
-                        // Coucou c'est pour le push
+                        // Traiter la réponse ici
+                        Log.d("CityName :", response.getName());
 
 
 
-                        // Display the first 500 characters of the response string.
-                        //meteo.setText("Response is: "+ response.substring(0,500));
                     }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(DetailCity.this,"That didn't work!", Toast.LENGTH_LONG).show();
-            }
-        });
-        // Add the request to the RequestQueue.
-        queue.add(stringRequest);
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        // Traitement de l'erreur
+                        Toast.makeText(DetailCity.this, "Erreur Poto", Toast.LENGTH_LONG).show();
+                    }
+                });
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
+
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
