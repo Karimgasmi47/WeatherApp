@@ -5,27 +5,27 @@ package gasmi.monteleone.weatherapp;
  */
 
 public class Coord {
-    private String latitude;
-    private String longitude;
+    private Double latitude;
+    private Double longitude;
 
-    public Coord(String latitude, String longitude) {
+    public Coord(Double latitude, Double longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public String getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public String getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 }

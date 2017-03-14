@@ -1,5 +1,6 @@
 package gasmi.monteleone.weatherapp;
 
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -70,6 +72,9 @@ public class FirstActivity extends AppCompatActivity {
                 @Override
                 public void onCityClick(City city) {
                     // Action lors du clic sur un item de la liste
+                    Intent intent = new Intent(FirstActivity.this, DetailCity.class);
+                    intent.putExtra("city", city);
+                    startActivity(intent);
 
                 }
 

@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 public class DetailCity extends AppCompatActivity {
 
@@ -24,5 +25,12 @@ public class DetailCity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        City city = getIntent().getParcelableExtra("city");
+        TextView nom = (TextView) findViewById(R.id.nom);
+        TextView coord = (TextView) findViewById(R.id.coord);
+        TextView country = (TextView) findViewById(R.id.country);
+
+        coord.setText(city.getName() + "\nLong : " + city.getCoord().getLongitude() + "\nLat : " + city.getCoord().getLatitude());
     }
 }
