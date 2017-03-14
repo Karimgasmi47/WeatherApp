@@ -76,6 +76,9 @@ public class FirstActivity extends AppCompatActivity {
                     Log.e("testLat", String.valueOf(city.getCoord().getLatitude()));
                     Log.e("testLon", String.valueOf(city.getCoord().getLongitude()));
                     intent.putExtra("city", city);
+                    // intent.putExtra("lat", city.getCoord().getLatitude());
+                    // intent.putExtra("long", city.getCoord().getLongitude());
+                    intent.putExtra("coord", city.getCoord());
                     startActivity(intent);
 
                 }
