@@ -54,8 +54,7 @@ public class DetailCity extends AppCompatActivity {
                     public void onResponse( City response) {
 
                         // Traiter la réponse ici
-                        Log.d("CityName :", response.getName());
-
+                        Log.d("CityName :", response.toString());
 
 
                     }
@@ -65,7 +64,7 @@ public class DetailCity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
 
                         // Traitement de l'erreur
-                        Toast.makeText(DetailCity.this, "Erreur Poto", Toast.LENGTH_LONG).show();
+                        Toast.makeText(DetailCity.this, "Erreur", Toast.LENGTH_LONG).show();
                     }
                 });
         RequestQueue queue = Volley.newRequestQueue(this);
