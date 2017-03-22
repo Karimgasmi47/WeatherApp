@@ -24,6 +24,7 @@ public class DetailCity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        final TextView description = (TextView) findViewById(R.id.description);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_city);
 
@@ -48,13 +49,16 @@ public class DetailCity extends AppCompatActivity {
         // Instantiate the RequestQueue.
         String url ="http://api.openweathermap.org/data/2.5/weather?id=" + city.getId() + "&appid=" + API_KEY;
 
-        GsonRequest<City> request = new GsonRequest<>(url, City.class, null,
-                new Response.Listener<City>() {
+        GsonRequest<CityWeather> request = new GsonRequest<>(url, CityWeather.class, null,
+                new Response.Listener<CityWeather>() {
                     @Override
-                    public void onResponse( City response) {
+                    public void onResponse( CityWeather response) {
 
                         // Traiter la réponse ici
                         Log.d("CityName :", response.toString());
+
+                        description.setText("Description :" + String.valueOf(response.getDescription()));
+
 
 
                     }
@@ -80,12 +84,5 @@ public class DetailCity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
-        City city = getIntent().getParcelableExtra("city");
-        TextView nom = (TextView) findViewById(R.id.nom);
-        TextView coord = (TextView) findViewById(R.id.coord);
-        TextView country = (TextView) findViewById(R.id.country);
-
-        coord.setText(city.getName() + "\nLong : " + city.getCoord().getLongitude() + "\nLat : " + city.getCoord().getLatitude());
     }
 }
