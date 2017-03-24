@@ -33,7 +33,8 @@ public class DetailCity extends AppCompatActivity {
         City city = getIntent().getParcelableExtra("city");
         Coord coordo = getIntent().getParcelableExtra("coord");
 
-        final TextView description = (TextView) findViewById(R.id.description);
+        final TextView weatherDescription = (TextView) findViewById(R.id.weatherDescription);
+        final TextView weatherMain = (TextView) findViewById(R.id.weatherMain);
         final TextView nom = (TextView) findViewById(R.id.nom);
         final TextView meteo = (TextView) findViewById(R.id.meteo);
 
@@ -48,7 +49,8 @@ public class DetailCity extends AppCompatActivity {
                         // Traiter la réponse ici
                         Log.d("CityName :", response.toString());
 
-                        description.setText("Description :" +String.valueOf(response.getDescription()));
+                        weatherDescription.setText("Description :" +String.valueOf(response.getDescription()));
+                        weatherMain.setText("Main :" + String.valueOf(response.getMain()));
 
 
 

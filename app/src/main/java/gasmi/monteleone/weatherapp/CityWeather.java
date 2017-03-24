@@ -15,18 +15,18 @@ import java.lang.reflect.Type;
 
 public class CityWeather implements JsonDeserializer<CityWeather> {
 
-    private String main;
+    private String weatherMain;
     private String weather;
 
-    private int id;
-    private String description;
+    private int weatherId;
+    private String weatherDescription;
 
     public String getMain() {
-        return main;
+        return weatherMain;
     }
 
     public void setMain(String main) {
-        this.main = main;
+        this.weatherMain = main;
     }
 
     public String getWeather() {
@@ -38,28 +38,28 @@ public class CityWeather implements JsonDeserializer<CityWeather> {
     }
 
     public int getId() {
-        return id;
+        return weatherId;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.weatherId = id;
     }
 
     public String getDescription() {
-        return description;
+        return weatherDescription;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.weatherDescription = description;
     }
 
     @Override
     public String toString() {
         return "CityWeather{" +
-                "main='" + main + '\'' +
+                "main='" + weatherMain + '\'' +
                 ", weather='" + weather + '\'' +
-                ", id=" + id +
-                ", description='" + description + '\'' +
+                ", id=" + weatherId +
+                ", description='" + weatherDescription + '\'' +
                 '}';
     }
 
@@ -74,6 +74,7 @@ public class CityWeather implements JsonDeserializer<CityWeather> {
 
 
         cw.setDescription(weatherObj.get("description").getAsString());
+        cw.setMain(weatherObj.get("id").getAsString());
 
         return cw;
     }
