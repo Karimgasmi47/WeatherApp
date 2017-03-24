@@ -33,6 +33,8 @@ public class DetailCity extends AppCompatActivity {
         City city = getIntent().getParcelableExtra("city");
         Coord coordo = getIntent().getParcelableExtra("coord");
 
+        setTitle(city.getName());
+
         final TextView weatherDescription = (TextView) findViewById(R.id.weatherDescription);
         final TextView weatherMain = (TextView) findViewById(R.id.weatherMain);
         final TextView mainHumidity = (TextView) findViewById(R.id.mainHumidity);
@@ -75,10 +77,11 @@ public class DetailCity extends AppCompatActivity {
 
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                fab.setImageResource(R.drawable.ic_star_black_24dp);
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
