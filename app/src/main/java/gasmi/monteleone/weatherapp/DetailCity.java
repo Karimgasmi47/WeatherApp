@@ -47,7 +47,7 @@ public class DetailCity extends AppCompatActivity {
         GsonRequest<CityWeather> request = new GsonRequest<>(url, CityWeather.class, null,
                 new Response.Listener<CityWeather>() {
                     @Override
-                    public void onResponse( CityWeather response) {
+                    public void onResponse(CityWeather response) {
 
                         // Traiter la réponse ici
                         Log.d("CityName :", response.toString());
@@ -59,8 +59,6 @@ public class DetailCity extends AppCompatActivity {
                         mainTemp.setText("Temp :" + String.valueOf(response.getMainTemp()));
                         mainTemp_min.setText("Temp min :" + String.valueOf(response.getMainTemp_min()));
                         mainTemp_max.setText("Temp max :" + String.valueOf(response.getMainTemp_max()));
-
-
 
                     }
                 },
