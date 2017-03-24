@@ -74,7 +74,7 @@ public class CityWeather implements JsonDeserializer<CityWeather> {
 
 
         cw.setDescription(weatherObj.get("description").getAsString());
-        cw.setMain(weatherObj.get("id").getAsString());
+        cw.setMain(weatherObj.get("main").getAsString());
 
         return cw;
     }
