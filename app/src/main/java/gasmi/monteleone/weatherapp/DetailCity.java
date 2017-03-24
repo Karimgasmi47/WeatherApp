@@ -55,10 +55,10 @@ public class DetailCity extends AppCompatActivity {
                         weatherDescription.setText("Description :" +String.valueOf(response.getDescription()));
                         weatherMain.setText("Main :" + String.valueOf(response.getMain()));
                         mainHumidity.setText("Humidité :" + String.valueOf(response.getMainHumidity()));
-                        mainPressure.setText("Humidité :" + String.valueOf(response.getMainPressure()));
-                        mainTemp.setText("Humidité :" + String.valueOf(response.getMainTemp()));
-                        mainTemp_min.setText("Humidité :" + String.valueOf(response.getMainTemp_min()));
-                        mainTemp_max.setText("Humidité :" + String.valueOf(response.getMainTemp_max()));
+                        mainPressure.setText("Pression :" + String.valueOf(response.getMainPressure()));
+                        mainTemp.setText("Temp :" + String.valueOf(response.getMainTemp()));
+                        mainTemp_min.setText("Temp min :" + String.valueOf(response.getMainTemp_min()));
+                        mainTemp_max.setText("Temp max :" + String.valueOf(response.getMainTemp_max()));
 
 
 
