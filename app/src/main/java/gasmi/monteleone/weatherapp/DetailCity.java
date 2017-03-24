@@ -24,27 +24,18 @@ public class DetailCity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        final TextView description = (TextView) findViewById(R.id.description);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_city);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         City city = getIntent().getParcelableExtra("city");
         Coord coordo = getIntent().getParcelableExtra("coord");
-        //Double lat = getIntent().getDoubleExtra("lat", 0.0);
-        //Double lon = getIntent().getDoubleExtra("long", 0.0);
 
+        final TextView description = (TextView) findViewById(R.id.description);
         final TextView nom = (TextView) findViewById(R.id.nom);
         final TextView meteo = (TextView) findViewById(R.id.meteo);
-//      TextView coord = (TextView) findViewById(R.id.coord);
-
-//      nom.setText(city.getCountry() + " - " +city.getName());
-//      coord.setText("Long : " + city.getCoord().getLongitude() + "\nLat : " + city.getCoord().getLatitude());
-//      coord.setText("\nLong : "+ coordo.getLatitude() + "\nLat : " + coordo.getLongitude());
-
 
         // Instantiate the RequestQueue.
         String url ="http://api.openweathermap.org/data/2.5/weather?id=" + city.getId() + "&appid=" + API_KEY;
@@ -57,7 +48,7 @@ public class DetailCity extends AppCompatActivity {
                         // Traiter la réponse ici
                         Log.d("CityName :", response.toString());
 
-                        description.setText("Description :" + String.valueOf(response.getDescription()));
+                        description.setText("Description :" +String.valueOf(response.getDescription()));
 
 
 

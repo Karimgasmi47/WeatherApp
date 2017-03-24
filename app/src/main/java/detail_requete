@@ -1,0 +1,42 @@
+{
+  "coord": {
+    "lon": 2.38,
+    "lat": 48.67
+  },
+  "weather": [
+    {
+      "id": 803,
+      "main": "Clouds",
+      "description": "broken clouds",
+      "icon": "04d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 284.82,
+    "pressure": 1011,
+    "humidity": 66,
+    "temp_min": 284.15,
+    "temp_max": 285.15
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 6.2,
+    "deg": 230
+  },
+  "clouds": {
+    "all": 75
+  },
+  "dt": 1490027400,
+  "sys": {
+    "type": 1,
+    "id": 5615,
+    "message": 0.0118,
+    "country": "FR",
+    "sunrise": 1489989104,
+    "sunset": 1490033069
+  },
+  "id": 6446231,
+  "name": "Viry-Châtillon",
+  "cod": 200
+}

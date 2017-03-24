@@ -71,6 +71,8 @@ public class CityWeather implements JsonDeserializer<CityWeather> {
         JsonArray weatherArray = jsonObject.get("weather").getAsJsonArray();
         JsonObject weatherObj = weatherArray.get(0).getAsJsonObject();
 
+
+
         cw.setDescription(weatherObj.get("description").getAsString());
 
         return cw;
