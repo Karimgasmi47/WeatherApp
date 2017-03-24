@@ -129,11 +129,11 @@ public class CityWeather implements JsonDeserializer<CityWeather> {
 
         cw.setDescription(weatherObj.get("description").getAsString());
         cw.setMain(weatherObj.get("main").getAsString());
-        cw.setMainTemp(mainObj.getAsJsonObject("temp").getAsString());
-        cw.setMainPressure(mainObj.getAsJsonObject("pressure").getAsString());
-        cw.setMainHumidity(mainObj.getAsJsonObject("humidity").getAsString());
-        cw.setMainTemp_min(mainObj.getAsJsonObject("temp_min").getAsString());
-        cw.setMainTemp_max(mainObj.getAsJsonObject("temp_max").getAsString());
+        cw.setMainTemp(mainObj.get("temp").getAsString());
+        cw.setMainPressure(mainObj.get("pressure").getAsString());
+        cw.setMainHumidity(mainObj.get("humidity").getAsString());
+        cw.setMainTemp_min(mainObj.get("temp_min").getAsString());
+        cw.setMainTemp_max(mainObj.get("temp_max").getAsString());
 
         return cw;
     }
