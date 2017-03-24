@@ -18,6 +18,52 @@ public class CityWeather implements JsonDeserializer<CityWeather> {
     private String weatherMain;
     private String weather;
 
+    private String mainTemp;
+    private String mainPressure;
+    private String mainHumidity;
+    private String mainTemp_min;
+    private String mainTemp_max;
+
+    public String getMainTemp_max() {
+        return mainTemp_max;
+    }
+
+    public void setMainTemp_max(String mainTemp_max) {
+        this.mainTemp_max = mainTemp_max;
+    }
+
+    public String getMainTemp_min() {
+        return mainTemp_min;
+    }
+
+    public void setMainTemp_min(String mainTemp_min) {
+        this.mainTemp_min = mainTemp_min;
+    }
+
+    public String getMainHumidity() {
+        return mainHumidity;
+    }
+
+    public void setMainHumidity(String mainHumidity) {
+        this.mainHumidity = mainHumidity;
+    }
+
+    public String getMainPressure() {
+        return mainPressure;
+    }
+
+    public void setMainPressure(String mainPressure) {
+        this.mainPressure = mainPressure;
+    }
+
+    public String getMainTemp() {
+        return mainTemp;
+    }
+
+    public void setMainTemp(String mainTemp) {
+        this.mainTemp = mainTemp;
+    }
+
     private int weatherId;
     private String weatherDescription;
 
@@ -56,10 +102,15 @@ public class CityWeather implements JsonDeserializer<CityWeather> {
     @Override
     public String toString() {
         return "CityWeather{" +
-                "main='" + weatherMain + '\'' +
+                "weatherMain='" + weatherMain + '\'' +
                 ", weather='" + weather + '\'' +
-                ", id=" + weatherId +
-                ", description='" + weatherDescription + '\'' +
+                ", mainTemp=" + mainTemp +
+                ", mainPressure=" + mainPressure +
+                ", mainHumidity=" + mainHumidity +
+                ", mainTemp_min=" + mainTemp_min +
+                ", mainTemp_max=" + mainTemp_max +
+                ", weatherId=" + weatherId +
+                ", weatherDescription='" + weatherDescription + '\'' +
                 '}';
     }
 
@@ -71,10 +122,18 @@ public class CityWeather implements JsonDeserializer<CityWeather> {
         JsonArray weatherArray = jsonObject.get("weather").getAsJsonArray();
         JsonObject weatherObj = weatherArray.get(0).getAsJsonObject();
 
+        JsonArray mainArray = jsonObject.get("main").getAsJsonArray();
+        JsonObject mainObj = mainArray.get(0).getAsJsonObject();
+
 
 
         cw.setDescription(weatherObj.get("description").getAsString());
         cw.setMain(weatherObj.get("main").getAsString());
+        cw.setMainTemp(mainObj.getAsJsonObject("temp").getAsString());
+        cw.setMainPressure(mainObj.getAsJsonObject("pressure").getAsString());
+        cw.setMainHumidity(mainObj.getAsJsonObject("humidity").getAsString());
+        cw.setMainTemp_min(mainObj.getAsJsonObject("temp_min").getAsString());
+        cw.setMainTemp_max(mainObj.getAsJsonObject("temp_max").getAsString());
 
         return cw;
     }

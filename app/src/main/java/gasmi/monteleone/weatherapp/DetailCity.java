@@ -35,8 +35,11 @@ public class DetailCity extends AppCompatActivity {
 
         final TextView weatherDescription = (TextView) findViewById(R.id.weatherDescription);
         final TextView weatherMain = (TextView) findViewById(R.id.weatherMain);
-        final TextView nom = (TextView) findViewById(R.id.nom);
-        final TextView meteo = (TextView) findViewById(R.id.meteo);
+        final TextView mainHumidity = (TextView) findViewById(R.id.mainHumidity);
+        final TextView mainPressure = (TextView) findViewById(R.id.mainPressure);
+        final TextView mainTemp = (TextView) findViewById(R.id.mainTemp);
+        final TextView mainTemp_min = (TextView) findViewById(R.id.mainTemp_min);
+        final TextView mainTemp_max = (TextView) findViewById(R.id.mainTemp_max);
 
         // Instantiate the RequestQueue.
         String url ="http://api.openweathermap.org/data/2.5/weather?id=" + city.getId() + "&appid=" + API_KEY;
@@ -51,6 +54,11 @@ public class DetailCity extends AppCompatActivity {
 
                         weatherDescription.setText("Description :" +String.valueOf(response.getDescription()));
                         weatherMain.setText("Main :" + String.valueOf(response.getMain()));
+                        mainHumidity.setText("Humidité :" + String.valueOf(response.getMainHumidity()));
+                        mainPressure.setText("Humidité :" + String.valueOf(response.getMainPressure()));
+                        mainTemp.setText("Humidité :" + String.valueOf(response.getMainTemp()));
+                        mainTemp_min.setText("Humidité :" + String.valueOf(response.getMainTemp_min()));
+                        mainTemp_max.setText("Humidité :" + String.valueOf(response.getMainTemp_max()));
 
 
 
