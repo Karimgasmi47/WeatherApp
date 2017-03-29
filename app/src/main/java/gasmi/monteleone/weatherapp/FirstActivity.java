@@ -2,6 +2,7 @@ package gasmi.monteleone.weatherapp;
 
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -24,9 +25,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import static java.security.AccessController.getContext;
+
 public class FirstActivity extends AppCompatActivity {
 
     private CityAdapter adapter;
+    static ArrayList<City> cities = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,38 +39,28 @@ public class FirstActivity extends AppCompatActivity {
 
         // Objets pour récuperer le contenu du fichier json (les villes)
         String json_file_string = "";
-        ArrayList<City> cities = new ArrayList<>();
+
         InputStream is = null;
         BufferedReader reader = null;
         AssetManager assetManager = getAssets();
+        new Load_Cities(this).execute(cities);
 
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+/*
        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                //Intent intent = new Intent(FirstActivity.this, MapsActivity.class);
-                //startActivity(intent);
+
             }
         });
 
-        Gson gson = new Gson();
-
-        try {
-            is = assetManager.open("city_france2.json");
-            reader = new BufferedReader(new InputStreamReader(is));
-            json_file_string = reader.readLine();
-            String line = null;
-            while( (line = reader.readLine()) != null) {
-                cities.add(gson.fromJson(line, City.class));
-            }
-
+        */
 
             // Création de l'Adapter avec pour paramètre la liste des Users (passage par référence !!!) et un Listener pour gérer le clic
             adapter = new CityAdapter(cities, new CityAdapter.OnCityListener(){
@@ -100,29 +94,6 @@ public class FirstActivity extends AppCompatActivity {
 
             // Affectation de l'Adapter
             recyclerView.setAdapter(adapter);
-
-
-
-        } catch (final Exception e){
-            e.printStackTrace();
-        } finally {
-            if (is != null) {
-                try {
-                    is.close();
-                } catch (IOException ignored) {
-                }
-            }
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException ignored) {
-                }
-            }
-        }
-
-
-
-
 
 
     }

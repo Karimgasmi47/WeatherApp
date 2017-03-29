@@ -23,6 +23,33 @@ public class CityWeather implements JsonDeserializer<CityWeather> {
     private String mainHumidity;
     private String mainTemp_min;
     private String mainTemp_max;
+    private String windSpeed;
+    private String visibility;
+    private String weatherIcon;
+
+    public void setWeatherIcon(String icon){
+        this.weatherIcon = icon;
+    }
+
+    public String getWeatherIcon(){
+        return this.weatherIcon;
+    }
+
+    public String getVisibility() {
+        return visibility;
+    }
+
+    public void setVisibility(String visibility) {
+        this.visibility = visibility;
+    }
+
+    public String getWindSpeed() {
+        return windSpeed;
+    }
+
+    public void setWindSpeed(String windSpeed) {
+        this.windSpeed = windSpeed;
+    }
 
     public String getMainTemp_max() {
         return mainTemp_max;
@@ -125,6 +152,7 @@ public class CityWeather implements JsonDeserializer<CityWeather> {
         JsonObject mainObj = jsonObject.get("main").getAsJsonObject();
 
         cw.setDescription(weatherObj.get("description").getAsString());
+        cw.setWeatherIcon(weatherObj.get("icon").getAsString());
         cw.setMain(weatherObj.get("main").getAsString());
         cw.setMainTemp(mainObj.get("temp").getAsString());
         cw.setMainPressure(mainObj.get("pressure").getAsString());

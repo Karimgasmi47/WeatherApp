@@ -19,22 +19,4 @@
 {"_id":6441760,"name":"Saint-Fons","country":"FR","coord":{"lon":4.86667,"lat":45.700001}}
 {"_id":6454369,"name":"Saint-Avold","country":"FR","coord":{"lon":6.7,"lat":49.099998}}
 {"_id":6454153,"name":"Rezé","country":"FR","coord":{"lon":-1.56667,"lat":47.200001}}
-{"_id":6454341,"name":"Pontivy","country":"FR","coord":{"lon":-2.98333,"lat":48.066669}}
-{"_id":6454014,"name":"Pessac","country":"FR","coord":{"lon":-0.61667,"lat":44.799999}}
-{"_id":6446184,"name":"Palaiseau","country":"FR","coord":{"lon":2.25,"lat":48.716671}}
-{"_id":6443784,"name":"Ozoir-la-Ferrière","country":"FR","coord":{"lon":2.66667,"lat":48.76667}}
-{"_id":6441724,"name":"Oullins","country":"FR","coord":{"lon":4.8,"lat":45.716671}}
-{"_id":6446721,"name":"Mougins","country":"FR","coord":{"lon":7,"lat":43.599998}}
-{"_id":6446177,"name":"Morsang-sur-Orge","country":"FR","coord":{"lon":2.35,"lat":48.666672}}
-{"_id":6430140,"name":"Montélimar","country":"FR","coord":{"lon":4.75,"lat":44.566669}}
-{"_id":6453858,"name":"Montbéliard","country":"FR","coord":{"lon":6.8,"lat":47.51667}}
-{"_id":6452024,"name":"Maisons-Alfort","country":"FR","coord":{"lon":2.43333,"lat":48.799999}}
-{"_id":6430468,"name":"Louviers","country":"FR","coord":{"lon":1.16667,"lat":49.216671}}
-{"_id":6452023,"name":"Limeil-Brévannes","country":"FR","coord":{"lon":2.4893,"lat":48.7467}}
-{"_id":6457185,"name":"Les Pavillons-sous-Bois","country":"FR","coord":{"lon":2.51667,"lat":48.900002}}
-{"_id":6432528,"name":"Lattes","country":"FR","coord":{"lon":3.9,"lat":43.566669}}
-{"_id":6446146,"name":"Grigny","country":"FR","coord":{"lon":2.39382,"lat":48.653931}}
-{"_id":6446274,"name":"Goussainville","country":"FR","coord":{"lon":2.474,"lat":49.032001}}
-{"_id":6454157,"name":"Gien","country":"FR","coord":{"lon":2.6297,"lat":47.689201}}
-{"_id":6451993,"name":"Gagny","country":"FR","coord":{"lon":2.53333,"lat":48.883331}}
-{"_id":6455107,"name":"Firminy","country":"FR","coord":{"lon":4.3,"lat":45.383331}}
+{"_id":6451740,"name":"Limoges","country":"FR","coord":{"lon":1.2626,"lat":45.834301}}
