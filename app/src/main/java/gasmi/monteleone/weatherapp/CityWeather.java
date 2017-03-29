@@ -159,6 +159,8 @@ public class CityWeather implements JsonDeserializer<CityWeather> {
         cw.setMainHumidity(mainObj.get("humidity").getAsString());
         cw.setMainTemp_min(mainObj.get("temp_min").getAsString());
         cw.setMainTemp_max(mainObj.get("temp_max").getAsString());
+        cw.setVisibility(jsonObject.get("visibility").getAsString());
+        cw.setWindSpeed(jsonObject.get("wind").getAsJsonObject().get("speed").getAsString());
 
         return cw;
     }
