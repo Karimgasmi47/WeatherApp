@@ -74,7 +74,8 @@
                             android:layout_height="match_parent"
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
-                            android:src="@drawable/ic_place_black_24dp"/>
+                            android:tint="#000"
+                            android:src="@drawable/humi"/>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -85,13 +86,13 @@
                                 android:id="@+id/mainHumidity"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:paddingLeft="8dp"
+                                android:paddingLeft="3dp"
                                 android:textSize="20dp"
                                 />
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:paddingLeft="8dp"
+                                android:paddingLeft="3dp"
                                 android:textSize="15dp"
                                 android:text="Humidité"
                                 />
@@ -102,7 +103,7 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_place_black_24dp"
+                        android:src="@drawable/pression"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"/>
 
@@ -115,13 +116,13 @@
                                 android:id="@+id/mainPressure"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:paddingLeft="8dp"
+                                android:paddingLeft="3dp"
                                 android:textSize="20dp"
                                 />
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:paddingLeft="8dp"
+                                android:paddingLeft="3dp"
                                 android:textSize="15dp"
                                 android:text="Pression"
                                 />
@@ -138,7 +139,7 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_place_black_24dp"
+                        android:src="@drawable/wind"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"/>
                         <LinearLayout
@@ -149,14 +150,14 @@
                                 android:id="@+id/windSpeed"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:paddingLeft="8dp"
+                                android:paddingLeft="3dp"
                                 android:textSize="20dp"
                                 />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:paddingLeft="8dp"
+                                android:paddingLeft="3dp"
                                 android:textSize="15dp"
                                 android:text="Vent"
                                 />
@@ -167,7 +168,7 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_place_black_24dp"
+                        android:src="@drawable/visi"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"/>
 
@@ -180,13 +181,13 @@
                             android:id="@+id/visibility"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="8dp"
+                            android:paddingLeft="3dp"
                             android:textSize="20dp"
                         />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="8dp"
+                            android:paddingLeft="3dp"
                             android:textSize="15dp"
                             android:text="Visibilité"
                             />
