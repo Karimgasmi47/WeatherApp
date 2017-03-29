@@ -45,8 +45,10 @@ public class DetailCity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        City city = getIntent().getParcelableExtra("city");
-        Coord coordo = getIntent().getParcelableExtra("coord");
+        final City city = getIntent().getParcelableExtra("city");
+        final Coord coordo = getIntent().getParcelableExtra("coord");
+        final Double l1 = coordo.getLatitude();
+        final Double l2 = coordo.getLongitude();
 
         setTitle(city.getName());
 
@@ -56,8 +58,8 @@ public class DetailCity extends AppCompatActivity {
         final TextView mainHumidity = (TextView) findViewById(R.id.mainHumidity);
         final TextView mainPressure = (TextView) findViewById(R.id.mainPressure);
         final TextView mainTemp = (TextView) findViewById(R.id.mainTemp);
-        final TextView mainTemp_min = (TextView) findViewById(R.id.mainTemp_min);
-        final TextView mainTemp_max = (TextView) findViewById(R.id.mainTemp_max);
+        final TextView visibility = (TextView) findViewById(R.id.visibility);
+        final TextView windSpeed = (TextView) findViewById(R.id.windSpeed);
 
         // Instantiate the RequestQueue.
         String url ="http://api.openweathermap.org/data/2.5/weather?id=" + city.getId() + "&appid=" + API_KEY;
@@ -95,8 +97,8 @@ public class DetailCity extends AppCompatActivity {
                         mTemp = Double.valueOf(round(mTemp));
                         mainTemp.setText(String.valueOf(mTemp) + "°C");
 
-                        mainTemp_min.setText(String.valueOf(response.getMainTemp_min()));
-                        mainTemp_max.setText(String.valueOf(response.getMainTemp_max()));
+                        visibility.setText(String.valueOf(response.getVisibility()));
+                        windSpeed.setText(String.valueOf(response.getWindSpeed()));
 
                     }
                 },
@@ -115,10 +117,12 @@ public class DetailCity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fab.setImageResource(R.drawable.ic_star_black_24dp);
+                fab.setImageResource(R.drawable.ic_pin_drop_black_24dp);
                 Snackbar.make(view, "Replace with action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 Intent intent = new Intent(DetailCity.this, MapsActivity.class);
+                intent.putExtra("Lat", l1);
+                intent.putExtra("Lng", l2);
                 startActivity(intent);
             }
         });

@@ -53,7 +53,6 @@ public class FirstActivity extends AppCompatActivity {
         AssetManager assetManager = getAssets();
         new Load_Cities(this).execute(cities);
 
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -75,11 +74,7 @@ public class FirstActivity extends AppCompatActivity {
                 public void onCityClick(City city) {
                     // Action lors du clic sur un item de la liste
                     Intent intent = new Intent(FirstActivity.this, DetailCity.class);
-                    Log.e("testLat", String.valueOf(city.getCoord().getLatitude()));
-                    Log.e("testLon", String.valueOf(city.getCoord().getLongitude()));
                     intent.putExtra("city", city);
-                    // intent.putExtra("lat", city.getCoord().getLatitude());
-                    // intent.putExtra("long", city.getCoord().getLongitude());
                     intent.putExtra("coord", city.getCoord());
                     startActivity(intent);
 
