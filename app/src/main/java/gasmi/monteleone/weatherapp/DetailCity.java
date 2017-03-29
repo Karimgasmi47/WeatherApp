@@ -45,8 +45,10 @@ public class DetailCity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        City city = getIntent().getParcelableExtra("city");
-        Coord coordo = getIntent().getParcelableExtra("coord");
+        final City city = getIntent().getParcelableExtra("city");
+        final Coord coordo = getIntent().getParcelableExtra("coord");
+        final Double l1 = coordo.getLatitude();
+        final Double l2 = coordo.getLongitude();
 
         setTitle(city.getName());
 
@@ -119,6 +121,8 @@ public class DetailCity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 Intent intent = new Intent(DetailCity.this, MapsActivity.class);
+                intent.putExtra("Lat", l1);
+                intent.putExtra("Lng", l2);
                 startActivity(intent);
             }
         });
