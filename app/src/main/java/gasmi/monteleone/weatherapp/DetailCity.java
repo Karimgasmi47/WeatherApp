@@ -88,8 +88,8 @@ public class DetailCity extends AppCompatActivity {
 
                         Glide.with(DetailCity.this).load("http://openweathermap.org/img/w/" + response.getWeatherIcon() +".png").into(weatherIcon);
 
-                        mainHumidity.setText(String.valueOf(response.getMainHumidity()));
-                        mainPressure.setText(String.valueOf(response.getMainPressure()));
+                        mainHumidity.setText(String.valueOf(response.getMainHumidity()) + " %");
+                        mainPressure.setText(String.valueOf(response.getMainPressure()) + " mb");
 
                         String mTempStr = response.getMainTemp();
                         Double mTemp = Double.parseDouble(mTempStr.toString());
@@ -97,8 +97,16 @@ public class DetailCity extends AppCompatActivity {
                         mTemp = Double.valueOf(round(mTemp));
                         mainTemp.setText(String.valueOf(mTemp) + "°C");
 
-                        visibility.setText(String.valueOf(response.getVisibility()));
-                        windSpeed.setText(String.valueOf(response.getWindSpeed()));
+                        String vis = response.getVisibility();
+                        int visib = Integer.valueOf(vis);
+                        if (visib > 1000) {
+                            vis = vis.substring(0, 2) + " km";
+                        } else {
+                            vis = response.getVisibility() + " m";
+                        }
+
+                        visibility.setText(String.valueOf(vis));
+                        windSpeed.setText(String.valueOf(response.getWindSpeed()) + " km/h");
 
                     }
                 },
@@ -117,9 +125,9 @@ public class DetailCity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fab.setImageResource(R.drawable.ic_pin_drop_black_24dp);
+                /*fab.setImageResource(R.drawable.ic_pin_drop_black_24dp);
                 Snackbar.make(view, "Replace with action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                        .setAction("Action", null).show();*/
                 Intent intent = new Intent(DetailCity.this, MapsActivity.class);
                 intent.putExtra("Lat", l1);
                 intent.putExtra("Lng", l2);
