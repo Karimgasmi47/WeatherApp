@@ -17,6 +17,16 @@
             android:layout_height="wrap_content">
         </android.support.v7.widget.RecyclerView>
 
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:ems="10"
+            android:layout_above="@+id/recycler_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:id="@+id/search" />
 
 
 </RelativeLayout>
