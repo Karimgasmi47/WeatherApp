@@ -69,17 +69,8 @@ public class FirstActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-/*
-       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
 
-            }
-        });
-
-        */
         adapter = new CityAdapter(cities, new CityAdapter.OnCityListener() {
             @Override
             public void onCityClick(City city) {
@@ -112,6 +103,7 @@ public class FirstActivity extends AppCompatActivity {
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+        addTextListener();
     }
 
     @Override
